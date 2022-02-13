@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial</title>
+    <link rel="stylesheet" href="assets/bootstrap.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tolga Yakar | Electron Js Starter</h1>
+        <input type="text", id="value">
+        <button class="btn btn-primary" id="sendBtn">Send</button>
+    </div>
+
+    <script>
+        const { ipcRenderer } = require('electron')
+
+        let sendBtn = document.querySelector('#sendBtn')
+        let inputValue = document.querySelector('#value')
+
+        sendBtn.addEventListener('click', () => {
+            ipcRenderer.send("key:inputValue", inputValue.value)
+            
+        })
+    </script>
+</body>
+</html>
